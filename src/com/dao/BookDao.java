@@ -15,4 +15,13 @@ public interface BookDao
      * @return 所有图书
      */
     List<Books> findAll();
+
+    /**
+     * 添加图书
+     *
+     * @param bookName    书名
+     * @param author      作者
+     * @param description 描述
+     */
+    void add(String bookName, String author, String description);
 }

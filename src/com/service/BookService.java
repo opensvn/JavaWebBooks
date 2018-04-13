@@ -17,4 +17,9 @@ public class BookService
     {
         return bookDao.findAll();
     }
+
+    public void add(String bookName, String author, String description)
+    {
+        bookDao.add(bookName, author, description);
+    }
 }

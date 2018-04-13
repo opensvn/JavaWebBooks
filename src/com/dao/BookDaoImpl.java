@@ -3,10 +3,7 @@ package com.dao;
 import com.entity.Books;
 import com.utils.DbUtils;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,5 +45,28 @@ public class BookDaoImpl implements BookDao
             DbUtils.close(conn);
         }
         return list;
+    }
+
+    @Override
+    public void add(String bookName, String author, String description)
+    {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try
+        {
+            conn = DbUtils.getConnection();
+            ps = conn.prepareStatement("insert into books(book_name, author, description) values (? ,?, ?)");
+            ps.setString(1, bookName);
+            ps.setString(2, author);
+            ps.setString(3, description);
+            ps.executeUpdate();
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            DbUtils.close(ps);
+            DbUtils.close(conn);
+        }
     }
 }

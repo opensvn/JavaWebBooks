@@ -11,6 +11,7 @@
         <td>书名</td>
         <td>作者</td>
         <td>描述</td>
+        <td>操作</td>
     </tr>
     <c:forEach items="${list}" var="book">
         <tr>
