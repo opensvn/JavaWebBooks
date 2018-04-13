@@ -7,6 +7,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="JavaWebBooks" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/jstl.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.42-bin.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/standard.jar" />
+          <element id="dir-copy" path="$PROJECT_DIR$" />
+        </element>
       </element>
     </root>
   </artifact>

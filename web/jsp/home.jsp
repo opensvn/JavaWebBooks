@@ -9,8 +9,32 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <h1>图书管理系统</h1>
+<br>
+<button id="add">添加图书</button>
+<button id="list">图书列表</button>
+<button id="search">搜索图书</button>
+<div id="bottom" style="height: auto;width: auto">
+</div>
+<script>
+    $(function ()
+    {
+        $("#add").click(function ()
+        {
+            $("#bottom").load("add.jsp");
+        });
+        $("#list").click(function ()
+        {
+            $("#bottom").load("/list");
+        });
+        $("#search").click(function ()
+        {
+            $("#bottom").load("search.jsp");
+        });
+    })
+</script>
 </body>
 </html>
