@@ -22,4 +22,19 @@ public class BookService
     {
         bookDao.add(bookName, author, description);
     }
+
+    public void delete(String id)
+    {
+        bookDao.delete(id);
+    }
+
+    public Books findOne(String id)
+    {
+        return bookDao.findOne(id);
+    }
+
+    public void update(String id, String bookName, String author, String description)
+    {
+        bookDao.update(id, bookName, author, description);
+    }
 }

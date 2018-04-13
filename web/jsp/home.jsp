@@ -17,7 +17,11 @@
 <button id="add">添加图书</button>
 <button id="list">图书列表</button>
 <button id="search">搜索图书</button>
+<br>
 <div id="bottom" style="height: auto;width: auto">
+    <iframe>
+
+    </iframe>
 </div>
 <script>
     $(function ()
@@ -34,6 +38,7 @@
         {
             $("#bottom").load("search.jsp");
         });
+        $("#bottom").load("/list");
     })
 </script>
 </body>

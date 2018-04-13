@@ -12,18 +12,22 @@ import java.io.IOException;
 /**
  * @author JohnsonZheng
  */
-@WebServlet(name = "BookAddServlet", urlPatterns = "/add")
-public class BookAddServlet extends HttpServlet
+@WebServlet(name = "BookDeleteServlet", urlPatterns = "/delete")
+public class BookDeleteServlet extends HttpServlet
 {
     private BookService bookService = new BookService();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        String bookName = request.getParameter("bookName");
-        String author = request.getParameter("author");
-        String description = request.getParameter("description");
-        bookService.add(bookName, author, description);
+        doGet(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        String id = request.getParameter("id");
+        bookService.delete(id);
         response.sendRedirect("/jsp/home.jsp");
     }
 }

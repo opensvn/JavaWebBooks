@@ -69,4 +69,81 @@ public class BookDaoImpl implements BookDao
             DbUtils.close(conn);
         }
     }
+
+    @Override
+    public void delete(String id)
+    {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try
+        {
+            conn = DbUtils.getConnection();
+            ps = conn.prepareStatement("delete from books where id = ?");
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            DbUtils.close(ps);
+            DbUtils.close(conn);
+        }
+    }
+
+    @Override
+    public Books findOne(String id)
+    {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Books books = new Books();
+        try
+        {
+            conn = DbUtils.getConnection();
+            ps = conn.prepareStatement("select * from books where id = ?");
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                books.setId(rs.getInt("id"));
+                books.setBookName(rs.getString("book_name"));
+                books.setAuthor(rs.getString("author"));
+                books.setDescription(rs.getString("description"));
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            DbUtils.close(rs);
+            DbUtils.close(ps);
+            DbUtils.close(conn);
+        }
+        return books;
+    }
+
+    @Override
+    public void update(String id, String bookName, String author, String description)
+    {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try
+        {
+            conn = DbUtils.getConnection();
+            ps = conn.prepareStatement("update books set book_name = ?, author = ?, description = ? where id = ?");
+            ps.setString(1, bookName);
+            ps.setString(2, author);
+            ps.setString(3, description);
+            ps.setString(4, id);
+            ps.executeUpdate();
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            DbUtils.close(ps);
+            DbUtils.close(conn);
+        }
+    }
 }
