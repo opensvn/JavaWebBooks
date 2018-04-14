@@ -23,9 +23,6 @@
 </div>
 <br>
 <div id="bottom" style="height: auto;width: auto">
-    <iframe>
-
-    </iframe>
 </div>
 <script>
     $(function ()
