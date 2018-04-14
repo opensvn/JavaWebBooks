@@ -37,4 +37,14 @@ public class BookService
     {
         bookDao.update(id, bookName, author, description);
     }
+
+    public List<Books> findByName(String searchText)
+    {
+        return bookDao.findByName(searchText);
+    }
+
+    public List<Books> findByAuthor(String searchText)
+    {
+        return bookDao.findByAuthor(searchText);
+    }
 }

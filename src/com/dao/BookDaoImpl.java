@@ -146,4 +146,74 @@ public class BookDaoImpl implements BookDao
             DbUtils.close(conn);
         }
     }
+
+    @Override
+    public List<Books> findByName(String searchText)
+    {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Books> list = new ArrayList<>();
+        Books books;
+        try
+        {
+            conn = DbUtils.getConnection();
+            ps = conn.prepareStatement("select * from books where book_name like ?");
+            ps.setString(1, "%" + searchText + "%");
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                books = new Books();
+                books.setId(rs.getInt("id"));
+                books.setBookName(rs.getString("book_name"));
+                books.setAuthor(rs.getString("author"));
+                books.setDescription(rs.getString("description"));
+                list.add(books);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            DbUtils.close(rs);
+            DbUtils.close(ps);
+            DbUtils.close(conn);
+        }
+        return list;
+    }
+
+    @Override
+    public List<Books> findByAuthor(String searchText)
+    {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Books> list = new ArrayList<>();
+        Books books;
+        try
+        {
+            conn = DbUtils.getConnection();
+            ps = conn.prepareStatement("select * from books where author like ?");
+            ps.setString(1, "%" + searchText + "%");
+            rs = ps.executeQuery();
+            while (rs.next())
+            {
+                books = new Books();
+                books.setId(rs.getInt("id"));
+                books.setBookName(rs.getString("book_name"));
+                books.setAuthor(rs.getString("author"));
+                books.setDescription(rs.getString("description"));
+                list.add(books);
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            DbUtils.close(rs);
+            DbUtils.close(ps);
+            DbUtils.close(conn);
+        }
+        return list;
+    }
 }

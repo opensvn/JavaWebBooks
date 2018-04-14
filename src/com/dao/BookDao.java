@@ -49,4 +49,20 @@ public interface BookDao
      * @param description 描述
      */
     void update(String id, String bookName, String author, String description);
+
+    /**
+     * 根据图书名查找
+     *
+     * @param searchText 搜索的关键字
+     * @return 图书
+     */
+    List<Books> findByName(String searchText);
+
+    /**
+     * 根据作者查找
+     *
+     * @param searchText 搜索的关键字
+     * @return 图书
+     */
+    List<Books> findByAuthor(String searchText);
 }
