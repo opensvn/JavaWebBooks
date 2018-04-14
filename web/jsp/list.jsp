@@ -3,18 +3,22 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="bottom" style="height: auto;width: auto">
-    <table border="1" cellspacing="1" cellpadding="10">
+    <table class="table table-hover">
+        <thead>
         <tr>
-            <td>id</td>
-            <td>书名</td>
-            <td>作者</td>
-            <td>描述</td>
-            <td>操作</td>
+            <th>id</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>描述</th>
+            <th>操作</th>
         </tr>
+        </thead>
         <c:forEach items="${list}" var="book">
             <tr>
                 <td>${book.id}</td>
@@ -23,7 +27,7 @@
                 <td>${book.description}</td>
                 <td>
 
-                    <button id="${book.id}">编辑
+                    <button id="${book.id}" class="btn btn-info">编辑
                         <script>
                             $(function ()
                             {
@@ -35,7 +39,7 @@
                         </script>
                     </button>
                     <a href="${pageContext.request.contextPath}/delete?id=${book.id}">
-                        <button>删除</button>
+                        <button class="btn btn-danger">删除</button>
                     </a>
                 </td>
             </tr>

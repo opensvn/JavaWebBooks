@@ -9,14 +9,18 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>图书管理系统</h1>
+<h1 align="center">图书管理系统</h1>
 <br>
-<button id="add">添加图书</button>
-<button id="list">图书列表</button>
-<button id="search">搜索图书</button>
+<div align="center">
+    <button id="add" class="btn btn-primary">添加图书</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="list" class="btn btn-primary">图书列表</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="search" class="btn btn-primary">搜索图书</button>
+</div>
 <br>
 <div id="bottom" style="height: auto;width: auto">
     <iframe>

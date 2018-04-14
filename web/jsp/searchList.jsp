@@ -3,15 +3,20 @@
 <html>
 <head>
     <title>Title</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
-<table border="1" cellspacing="1" cellpadding="10">
+<table class="table table-hover">
+    <thead>
     <tr>
         <td>id</td>
         <td>书名</td>
         <td>作者</td>
         <td>描述</td>
     </tr>
+    </thead>
     <c:forEach items="${list}" var="book">
         <tr>
             <td>${book.id}</td>
